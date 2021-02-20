@@ -1,0 +1,40 @@
+﻿@using Control.Entities.Models.Entites
+@model OrderDetail
+@{
+    ViewBag.Title = "Sipariş Detay Bilgileri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title || <a href="~/Order/Index" class="btn btn-primary">Sipariş Listesi</a> || <a href="~/Order/Delete/@Model.Id" class="btn btn-danger">Sipariş Bilgisini Sil</a>
+                        </header>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Fiyat</th>
+                                    <th>Miktar</th>
+                                    <th>İndirim Oranı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>@Model.Price.</td>
+                                    <td>@Model.Quantity</td>
+                                    <td>@Model.Discount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

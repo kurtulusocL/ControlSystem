@@ -1,0 +1,42 @@
+﻿@using Control.Entities.Models.Entites
+@model Product
+@{
+    ViewBag.Title = "Ürün Detay Bilgileri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-sm-10">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title || <a href="~/Product/Index" class="btn btn-primary">Ürün Listesi</a> || <a href="~/Product/Delete/@Model.Id" class="btn btn-danger">Ürünü Sil</a>
+                        </header>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Kategorisi</th>
+                                    <td>Altkategorisi</td>
+                                    <th>Lokasyon (Nereden)</th>
+                                    <th>Lokasyon (Nereye)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>@Model.Category.Name</td>
+                                    <td>@Model.Subcategory.Name</td>
+                                    <td>@Model.FromWhere.Name</td>
+                                    <td>@Model.ToWhere.Name</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

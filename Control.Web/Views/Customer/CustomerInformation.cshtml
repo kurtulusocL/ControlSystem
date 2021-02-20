@@ -1,0 +1,46 @@
+﻿@using Control.Entities.Models.Entites
+@model Customer
+@{
+    ViewBag.Title = "Müşteri Bilgisi Ayrıntısı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title || <a href="~/Customer/Index" class="btn btn-primary">Müşteri Listesi</a> || <a href="~/Customer/Delete/@Model.Id" class="btn btn-danger">Müşteriyi Sil</a>
+                        </header>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Adresi</th>
+                                    <th>Posta Kodu</th>
+                                    <th>Telefon No</th>
+                                    <th>Mail Adresi</th>
+                                    <th>Fax No</th>
+                                    <th>İnternet Sitesi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>@Model.CustomerInfo.Address</td>
+                                    <td>@Model.CustomerInfo.PostalCode</td>
+                                    <td>@Model.CustomerInfo.PhoneNumber</td>
+                                    <td>@Model.CustomerInfo.MailAddress</td>
+                                    <td>@Model.CustomerInfo.Fax</td>
+                                    <td><a href="@Model.CustomerInfo.WebSite" class="btn btn-info btn-xs">İnternet Sitesi</a></td>
+                                </tr>                              
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

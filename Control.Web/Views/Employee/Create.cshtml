@@ -1,0 +1,125 @@
+﻿@using Control.Entities.Models.Entites
+@model Employee
+@{
+    ViewBag.Title = "Yeni Çalışan Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" enctype="multipart/form-data" action="">
+                                    @using (Html.BeginForm("Create", "Employee", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ünvan ve Görev Seçimi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.TitleId, new SelectList(ViewBag.Titles, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.TitleId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Departmanı Seçimi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.DepartmantId, new SelectList(ViewBag.Departmants, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.DepartmantId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <h3><label class="label label-info">Çalışan Bilgileri</label></h3>
+                                        <hr />
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Adı-Soyadı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="NameSurname" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Cinsiyeti</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="Gender" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Resmi</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="image" type="file" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Doğum Tarihi</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="Birthdate" type="date" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">İşe Giriş Tarihi</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="HireDate" type="date" required />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <h3><label class="label label-info">Çalışan Adres Bilgileri</label></h3>
+                                        <hr />
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Adresi</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="EmployeeInfo.Address" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ülkesi</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="EmployeeInfo.Country" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Eyalet-Bölge</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="EmployeeInfo.Province" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Şehir</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="EmployeeInfo.City" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Telefon No:</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="EmployeeInfo.PhoneNumber" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ev Telefon No:</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="EmployeeInfo.HomeNumber" type="text" required />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                <button class="btn btn-primary" type="submit">Çalışan Bilgilerini Ekle</button>
+                                                <a href="~/Employee/Index"><button class="btn btn-danger" type="button">İptal Et</button></a>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

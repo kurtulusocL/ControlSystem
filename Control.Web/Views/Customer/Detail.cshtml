@@ -1,0 +1,40 @@
+﻿@using Control.Entities.Models.Entites
+@model Customer
+@{
+    ViewBag.Title = "Müşteri Detayı";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-sm-10">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title || <a href="~/Customer/Index" class="btn btn-primary">Müşteri Listesi</a> || <a href="~/Customer/Delete/@Model.Id" class="btn btn-danger">Müşteriyi Sil</a>
+                        </header>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Ülke</th>
+                                    <td>Eyalet - Bölge</td>
+                                    <th>Şehir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><a href="~/Home/CustomerToCountry/@Model.Id" class="btn btn-link" target="_blank">@Model.Country.Name</a></td>
+                                    <td><a href="~/Home/CustomerToProvince/@Model.Id" class="btn btn-link" target="_blank">@Model.Province.Name</a></td>
+                                    <td><a href="~/Home/CustomerToCity/@Model.Id" class="btn btn-link" target="_blank">@Model.City.Name</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

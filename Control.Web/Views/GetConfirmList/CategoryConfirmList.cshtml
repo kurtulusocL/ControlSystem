@@ -1,0 +1,60 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using Control.Entities.Models.Entites
+@model IPagedList<Category>
+@{
+    ViewBag.Title = "Kategori Onay Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        @ViewBag.Title || <a href="~/Category/Index" class="btn btn-primary btn-xs">Kategori Anasayfası</a>
+                    </header>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori Adı</th>                                        
+                                        <th class="hidden-phone">Eklenme Tarihi</th>
+                                        <th>İşlmeler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="gradeX">
+                                            <td>@item.Name</td>                                           
+                                            <td class="center hidden-phone">@item.CreatedTime.ToShortDateString()</td>
+                                            <td>
+                                                <a href="~/GetConfirmList/CategoryConfirm/@item.Id" class="btn btn-success btn-xs">Onayla</a>
+                                                <a href="~/Category/Delete/@item.Id" class="btn btn-danger btn-xs">Sil</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Kategori Adı</th>
+                                        <th class="hidden-phone">Eklenme Tarihi</th>
+                                        <th>İşlmeler</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="pagination">
+                                <div class="paginate_active">
+                                    @Html.PagedListPager(Model, Page => Url.Action("CategoryConfirmList", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>

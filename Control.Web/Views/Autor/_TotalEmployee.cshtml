@@ -1,0 +1,22 @@
+﻿@using Control.Entities.Models.Entites
+@model IEnumerable<Departmant>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <div class="panel-body">
+        <div class="timeline-messages">
+            <div class="msg-time-chat">
+                <div class="message-body msg-in">
+                    <span class="arrow"></span>
+                    <div class="text">
+                        <p class="attribution"> @item.CreatedTime.ToShortDateString() </p>
+                        <h4>@item.Name bölümünde @item.Employees.Count() kişi</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

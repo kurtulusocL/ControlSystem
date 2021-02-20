@@ -1,0 +1,53 @@
+﻿@using Control.Entities.Models.Entites
+@model Province
+@{
+    ViewBag.Title = "Yeni Eyalet-Bölge Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" enctype="multipart/form-data" action="">
+                                    @using (Html.BeginForm("Create", "Province", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ülke Listesi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.CountryId, new SelectList(ViewBag.Countries, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.CountryId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Eyalet-Bölge Adı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="Name" type="text" required />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                <button class="btn btn-primary" type="submit">Eyalet-Bölgeyi Ekle</button>
+                                                <a href="~/Province/Index"><button class="btn btn-danger" type="button">İptal Et</button></a>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

@@ -1,0 +1,117 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <aside class="profile-nav col-lg-3">
+                <section class="panel">
+                    @Html.Action("UserInfo", "Autor")
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#"> <i class="icon-edit"></i> Profili Güncelle</a></li>
+                        <li><a href="~/AutorAccount/ChangePassword"> <i class="icon-edit"></i> Şifre Değiştir</a></li>
+                        <li><a href="~/AutorAccount/Register"> <i class="icon-edit"></i> Yeni Admin Kaydı</a></li>
+                        <li><a href="~/AutorAdmin/AdminList"> <i class="icon-edit"></i> Admin Listesi</a></li>
+                        <li><a href="~/AutorAccount/Logout"> <i class="icon-edit"></i> Çıkış Yap</a></li>
+                    </ul>
+                </section>
+            </aside>
+            <aside class="profile-info col-lg-9">
+                <section class="panel">
+                    <div class="bio-graph-heading">
+                        Talih, sadece cesurlara yardım eder ve unutma ki vicdan, insanın içindeki tanrıdır. - Fortune, helps only those who are brave; and do not forget that the conscience is a god inside to peoples. - La fortuna, solo ayuda a los valientes; y no olvides que la conciencia es un dios dentro de los pueblos.
+                    </div>
+                    <div class="panel-body bio-graph-info">
+                        <h1>Kayıtlı Bilgileriniz</h1>
+                        @Html.Action("UserInformation", "Autor")
+                    </div>
+                </section>
+                <section>
+                    <div class="col-lg-12">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Bölüme Göre Çalışan Sayıları
+                                <span class="tools pull-right">
+                                    <a class="icon-chevron-down" href="javascript:;"></a>
+                                    <a class="icon-remove" href="javascript:;"></a>
+                                </span>
+                            </header>
+                            @Html.Action("TotalEmployee", "Autor")
+                        </section>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </section>
+</section>
+<section id="main-content">
+    <div class="row">
+        <div class="col-lg-11">
+            <section class="panel">
+                <header class="panel-heading">
+                    Ünvana Göre Çalışan Sayıları
+                    <span class="tools pull-right">
+                        <a class="icon-chevron-down" href="javascript:;"></a>
+                        <a class="icon-remove" href="javascript:;"></a>
+                    </span>
+                </header>
+                @Html.Action("TotalTitle", "Autor")
+            </section>
+        </div>
+    </div>
+</section>
+<section id="main-content">
+    <div class="row">
+        <div class="col-lg-5">
+            <section class="panel">
+                <header class="panel-heading">
+                    Şirket CEO Listesi
+                    <span class="tools pull-right">
+                        <a class="icon-chevron-down" href="javascript:;"></a>
+                        <a class="icon-remove" href="javascript:;"></a>
+                    </span>
+                </header>
+                @Html.Action("CEOList", "Autor")
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    Şirket Müdür Listesi
+                    <span class="tools pull-right">
+                        <a class="icon-chevron-down" href="javascript:;"></a>
+                        <a class="icon-remove" href="javascript:;"></a>
+                    </span>
+                </header>
+                @Html.Action("MenagerList", "Autor")
+            </section>
+        </div>
+        <div class="col-lg-5">
+            <section class="panel">
+                <header class="panel-heading">
+                    Şirket Genel Müdür Listesi
+                    <span class="tools pull-right">
+                        <a class="icon-chevron-down" href="javascript:;"></a>
+                        <a class="icon-remove" href="javascript:;"></a>
+                    </span>
+                </header>
+                @Html.Action("GeneralMenagerList", "Autor")
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <section class="panel">
+                <header class="panel-heading">
+                    Şirket Yönetici Listesi
+                    <span class="tools pull-right">
+                        <a class="icon-chevron-down" href="javascript:;"></a>
+                        <a class="icon-remove" href="javascript:;"></a>
+                    </span>
+                </header>
+                @Html.Action("AdministratorList", "Autor")
+            </section>
+        </div>
+    </div>
+</section>

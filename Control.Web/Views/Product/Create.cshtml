@@ -1,0 +1,117 @@
+﻿@using Control.Entities.Models.Entites
+@model Product
+@{
+    ViewBag.Title = "Yeni Ürün Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="container" class="">
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            @ViewBag.Title
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal tasi-form" id="signupForm" method="post" enctype="multipart/form-data" action="">
+                                    @using (Html.BeginForm("Create", "Product", FormMethod.Post))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <h4><label class="label label-primary">Kategori ve Lokasyon Seçimi</label></h4>
+                                        <hr />
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Kategori Listesi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.CategoryId, new SelectList(ViewBag.Categories, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.CategoryId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Altkategori Listesi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.SubcategoryId, new SelectList(ViewBag.Subcategories, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.SubcategoryId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Lokasyon( Nereden) Listesi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.FromWhereId, new SelectList(ViewBag.FromWheres, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.FromWhereId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Lokasyon( Nereye) Listesi: *</label>
+                                            <div class="col-lg-10">
+                                                @Html.DropDownListFor(i => i.ToWhereId, new SelectList(ViewBag.ToWheres, "Id", "Name", new { @class = "form-control" }))
+                                                @Html.ValidationMessageFor(i => i.ToWhereId, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <h4><label class="label label-primary">Ürün Bilgileri</label></h4>
+                                        <hr />
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ürün Numarası</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="ProductNumber" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ürün Adı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="Name" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Stokta Var Mı?</label>
+                                            <div class="col-lg-10">
+                                                <input name="InStock" id="radio-01" type="checkbox" checked="" required> Evet
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Stok Sayısı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="Stock" type="text" required />
+                                            </div>
+                                        </div>                                        
+                                        <hr />
+                                        <h4><label class="label label-primary">Ürün Detay Bilgileri</label></h4>
+                                        <hr />
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ürün Fiyatı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="ProductDetail.Price" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">Ürün Miktarı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="ProductDetail.Quantity" type="text" required />
+                                            </div>
+                                        </div>
+                                        <div class="form-group ">
+                                            <label for="firstname" class="control-label col-lg-2">İndirim Oranı</label>
+                                            <div class="col-lg-10">
+                                                <input class=" form-control" id="firstname" name="ProductDetail.Discount" type="text" required />
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-2 col-lg-10">
+                                                <button class="btn btn-primary" type="submit">Ürün Bilgilerini Ekle</button>
+                                                <a href="~/Product/Index"><button class="btn btn-danger" type="button">İptal Et</button></a>
+                                            </div>
+                                        </div>
+                                    }
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+</section>

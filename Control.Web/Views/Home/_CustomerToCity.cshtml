@@ -1,0 +1,70 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using Control.Entities.Models.Entites
+@model IPagedList<Customer>
+@{
+    Layout = null;
+    ViewBag.Title = "Şehire Göre Müşteri Listesi";
+}
+
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        @ViewBag.Title || <a href="~/Customer/Index" class="btn btn-primary btn-xs">Müşteri Listesi</a>
+                    </header>
+                    <div class="panel-body">
+                        <div class="adv-table">
+                            <table class="display table table-bordered table-striped" id="example">
+                                <thead>
+                                    <tr>
+                                        <th>Müşteri Adı-Soyadı</th>
+                                        <th>Şirket Adı</th>
+                                        <th>Ünvanı</th>
+                                        <th>Ödeme Sistemi</th>
+                                        <th>Ülkesi || Eyalet-Bölge</th>
+                                        <th>Şehir</th>
+                                        <th>Eklenme Tarihi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="gradeX">
+                                            <td>@item.NameSurname</td>
+                                            <td>@item.CompanyName</td>
+                                            <td>@item.Title</td>
+                                            <td><a href="~/Home/CustomerToPayment/@item.Id" class="btn btn-link" target="_blank">@item.Payment.Name</a></td>
+                                            <td><a href="~/Home/CustomerToCountry/@item.Id" class="btn btn-link" target="_blank">@item.Country.Name</a> || <a href="~/Home/CustomerToProvince/@item.Id" class="btn btn-link" target="_blank">@item.Province.Name</a></td>
+                                            <td><a href="~/Home/CustomerToCity/@item.Id" class="btn btn-link" target="_blank">@item.City.Name</a></td>
+                                            <td>@item.CreatedTime.ToShortDateString()</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Müşteri Adı-Soyadı</th>
+                                        <th>Şirket Adı</th>
+                                        <th>Ünvanı</th>
+                                        <th>Ödeme Sistemi</th>
+                                        <th>Ülkesi || Eyalet-Bölge</th>
+                                        <th>Şehir</th>
+                                        <th>Eklenme Tarihi</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="pagination">
+                                <div class="paginate_active">
+                                    @Html.PagedListPager(Model, Page => Url.Action("CustomerToCity", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+</section>
+

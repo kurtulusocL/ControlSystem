@@ -1,0 +1,288 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mosaddek">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="~/img/Logo 3.png">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/bootstrap-reset.css" rel="stylesheet">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/advanced-datatable/media/css/demo_page.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/advanced-datatable/media/css/demo_table.css" rel="stylesheet" />
+    <link href="~/Content/Admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <link rel="stylesheet" href="~/Content/Admin/css/owl.carousel.css" type="text/css">
+    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style-responsive.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <section id="container">
+        <header class="header white-bg">
+            <div class="sidebar-toggle-box">
+                <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
+            </div>
+            <a href="~/Admin/Index" class="logo">ocL<span> kurtulus</span></a>
+            <div class="nav notify-row" id="top_menu"></div>
+            <div class="top-nav ">
+                <ul class="nav pull-right top-menu">
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img alt="" src="~/img/icon.png">
+                            <span class="username">@Session["KullanıcıAdıSoyadı"]</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu extended logout">
+                            <li><a href="~/Account/Logout"><i class="icon-suitcase"></i> Oturumu Kapat</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-user"></i>
+                            <span>İçerik İşlemleri</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="~/Category/Index" target="_blank">Kategori İşlemleri</a></li>
+                            <li><a href="~/Subcategory/Index" target="_blank">Altkategori İşlemleri</a></li>
+                            <li><a href="~/Country/Index" target="_blank">Ülke İşlemleri</a></li>
+                            <li><a href="~/Province/Index" target="_blank">Eyalet-Bölge İşlemleri</a></li>
+                            <li><a href="~/City/Index" target="_blank">Şehir İşlemleri</a></li>
+                            <li><a href="~/FromWhere/Index" target="_blank">Lokasyon İşlemleri (Nereden)</a></li>
+                            <li><a href="~/ToWhere/Index" target="_blank">Lokasyon İşlemleri (Nereye)</a></li>
+                            <li><a href="~/Shipper/Index" target="_blank">Tedarikçi İşlemleri</a></li>
+                            <li><a href="~/Payment/Index" target="_blank">Ödeme Seçenekleri</a></li>
+                            <li><a href="~/Departmant/Index" target="_blank">Departman İşlemleri</a></li>
+                            <li><a href="~/Title/Index" target="_blank">Ünvan İşlemleri</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-user"></i>
+                            <span>İnceleme İşlemleri</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="~/Note/Index" target="_blank">Not İşlemleri</a></li>
+                            <li><a href="~/OrderDetail/Index" target="_blank">Sipariş Detay İşlemleri</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-user"></i>
+                            <span>Onay İşlemleri</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="~/GetConfirmList/CategoryConfirmList" target="_blank">Kategori Onay</a></li>
+                            <li><a href="~/GetConfirmList/SubcategoryConfirmList" target="_blank">Altkategori Onay</a></li>
+                            <li><a href="~/GetConfirmList/CountryConfirmList" target="_blank">Ülke Onay</a></li>
+                            <li><a href="~/GetConfirmList/ProvinceConfirmList" target="_blank">Eyalet-Bölge Onay</a></li>
+                            <li><a href="~/GetConfirmList/CityConfirmList" target="_blank">Şehir Onay</a></li>
+                            <li><a href="~/GetConfirmList/FromWhereConfirmList" target="_blank">Lokasyon Onay (Nereden)</a></li>
+                            <li><a href="~/GetConfirmList/ToWhereConfirmList" target="_blank">Lokasyon Onay (Nereye)</a></li>
+                            <li><a href="~/GetConfirmList/ShipperConfirmList" target="_blank">Tedarikçi Onay</a></li>
+                            <li><a href="~/GetConfirmList/PaymentConfirmList" target="_blank">Ödeme Onay</a></li>
+                            <li><a href="~/GetConfirmList/DepartmantConfirmList" target="_blank">Departman Onay</a></li>
+                            <li><a href="~/GetConfirmList/TitleConfirmList" target="_blank">Ünvan Onay</a></li>
+                            <li><a href="~/GetConfirmList/CustomerConfirmList" target="_blank">Müşteri Onay</a></li>
+                            <li><a href="~/GetConfirmList/EmployeeConfirmList" target="_blank">Çalışan Onay</a></li>
+                            <li><a href="~/GetConfirmList/NoteConfirmList" target="_blank">Not Onay</a></li>
+                            <li><a href="~/GetConfirmList/OrderConfirmList" target="_blank">Sipariş Onay</a></li>
+                            <li><a href="~/GetConfirmList/ProductConfirmList" target="_blank">Ürün Onay</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="~/Customer/Index" target="_blank">
+                            <i class="icon-folder-close-alt"></i>
+                            <span>Müşteri İşlemleri </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Employee/Index" target="_blank">
+                            <i class="icon-archive"></i>
+                            <span>Çalışan İşlemleri </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Order/Index" target="_blank">
+                            <i class="icon-picture"></i>
+                            <span>Sipariş İşlemi </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="~/Product/Index" target="_blank">
+                            <i class="icon-picture"></i>
+                            <span>Ürün İşlemi </span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-user"></i>
+                            <span>Not Oluştur</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="~/Note/Index" target="_blank">Not İşlemleri</a></li>                           
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-envelope"></i>
+                            <span>Yönetici İşlemleri</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="" target="_blank">##</a></li>
+                            <li><a href="" target="_blank">##</a></li>
+                            <li><a href="" target="_blank"> ##</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="icon-adn"></i>
+                            <span>Müdür İşlemleri</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="" target="_blank">##</a></li>
+                            <li class="sub-menu">
+                                <a href="">Admin İşlemleri</a>
+                                <ul class="sub">
+                                    <li><a href="" target="_blank">##</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        @RenderBody()
+        <footer class="site-footer">
+            <div class="text-center">
+                2019 - @DateTime.Now.Year &copy; kurtulusocal.
+                <a href="#" class="go-top">
+                    <i class="icon-angle-up"></i>
+                </a>
+            </div>
+        </footer>
+    </section>
+
+    <script type="text/javascript" language="javascript" src="~/Content/Adminassets/advanced-datatable/media/js/jquery.js"></script>
+    <script src="~/Content/Admin/js/jquery.js"></script>
+    <script src="~/Content/Admin/js/jquery-1.8.3.min.js"></script>
+    <script src="~/Content/Admin/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Content/Admin/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Content/Admin/js/jquery.scrollTo.min.js"></script>
+    <script src="~/Content/Admin/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="~/Content/Admin/js/jquery.sparkline.js" type="text/javascript"></script>
+    <script src="~/Content/Admin/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
+    <script src="~/Content/Admin/js/owl.carousel.js"></script>
+    <script src="~/Content/Admin/js/jquery.customSelect.min.js"></script>
+    <script src="~/Content/Admin/js/respond.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Content/Admin/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Content/Admin/assets/jquery-knob/js/jquery.knob.js"></script>
+    <script src="~/Content/Admin/js/common-scripts.js"></script>
+    <script type="text/javascript" language="javascript" src="~/Content/Adminassets/advanced-datatable/media/js/jquery.dataTables.js"></script>
+    <script src="~/Content/Admin/js/sparkline-chart.js"></script>
+    <script src="~/Content/Admin/js/easy-pie-chart.js"></script>
+    <script src="~/Content/Admin/js/count.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            $('#example').dataTable({
+                "aaSorting": [[4, "desc"]]
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        /* Formating function for row details */
+        function fnFormatDetails(oTable, nTr) {
+            var aData = oTable.fnGetData(nTr);
+            var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
+            sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
+            sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
+            sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
+            sOut += '</table>';
+
+            return sOut;
+        }
+
+        $(document).ready(function () {
+            /*
+             * Insert a 'details' column to the table
+             */
+            var nCloneTh = document.createElement('th');
+            var nCloneTd = document.createElement('td');
+            nCloneTd.innerHTML = '<img src="../Content/Admin/assets/advanced-datatable/examples/examples_support/details_open.png">';
+            nCloneTd.className = "center";
+
+            $('#hidden-table-info thead tr').each(function () {
+                this.insertBefore(nCloneTh, this.childNodes[0]);
+            });
+
+            $('#hidden-table-info tbody tr').each(function () {
+                this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
+            });
+
+            /*
+             * Initialse DataTables, with no sorting on the 'details' column
+             */
+            var oTable = $('#hidden-table-info').dataTable({
+                "aoColumnDefs": [
+                    { "bSortable": false, "aTargets": [0] }
+                ],
+                "aaSorting": [[1, 'asc']]
+            });
+
+            /* Add event listener for opening and closing details
+             * Note that the indicator for showing which row is open is not controlled by DataTables,
+             * rather it is done here
+             */
+            $('#hidden-table-info tbody td img').live('click', function () {
+                var nTr = $(this).parents('tr')[0];
+                if (oTable.fnIsOpen(nTr)) {
+                    /* This row is already open - close it */
+                    this.src = "../Content/Admin/assets/advanced-datatable/examples/examples_support/details_open.png";
+                    oTable.fnClose(nTr);
+                }
+                else {
+                    /* Open this row */
+                    this.src = "../Content/Admin/assets/advanced-datatable/examples/examples_support/details_close.png";
+                    oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
+                }
+            });
+        });
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                autoPlay: true
+
+            });
+        });
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+    </script>
+    <script>
+
+        $(".knob").knob();
+
+    </script>
+</body>
+</html>
